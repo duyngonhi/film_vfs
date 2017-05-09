@@ -1,0 +1,13 @@
+en:
+  staticPages:
+    footer_vfs: Truyen Hinh Viet Nam
+    home: Home
+    about: About
+    contact: Contact
+    user: User
+    login: Login
+    logout: Logout
+    register: Register
+    project_name: Film VFS
+
+
