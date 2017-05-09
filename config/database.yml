@@ -1,0 +1,17 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: duynv
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: FilmVFS
+
+production:
+  <<: *default
+  database: FilmTest_production
+  username: FilmTest
+  password: <%= ENV['FILMTEST_DATABASE_PASSWORD'] %>
