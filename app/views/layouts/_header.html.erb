@@ -16,6 +16,9 @@
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
+          <% if current_user.present? %>
+            <li><%= link_to t("static_pages.profile"), admin_user_path(current_user.id) %></li>
+          <% end %>
           <li><%= link_to t("static_pages.login"), new_user_session_path %></li>
           <li><%= link_to t("static_pages.register"), new_user_registration_path %></li>
           <li><%= link_to t("static_pages.logout"), destroy_user_session_path, method: :delete %></a></li>

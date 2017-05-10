@@ -1,0 +1,15 @@
+<tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.fullname %></td>
+      <td><%= user.birthday %></td>
+      <td><%= user.address %></td>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+      <td><%= link_to t("manage_user.show"), admin_user_path(user.id) %></td>
+      <td><%= link_to t("manage_user.edit"), edit_user_registration_path %></td>
+      <td><%= link_to t("manage_user.destroy"), admin_user_path(user.id),
+        method: :delete, data: {confirm: t("manage_user.you_sure")} %></td>
+    </tr>
+  <% end %>
+</tbody>
