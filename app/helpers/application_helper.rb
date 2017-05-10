@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def makeTitle(ptile="")
-      ptile + " | Study Ruby on Rails"
+  def make_title param_title = ""
+    param_title + " | Study Ruby on Rails"
   end
 end
