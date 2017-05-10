@@ -6,8 +6,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="container">
+  <body class="container margincontainer">
     <%= render "layouts/header"%>
+
+    <p class="notice text-success"><%= notice %></p>
+    <p class="alert text-success"><%= alert %></p>
+
     <%= yield %>
     <%= render "layouts/footer"%>
   </body>

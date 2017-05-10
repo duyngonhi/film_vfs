@@ -1,21 +1,28 @@
 <div class="header clearfix">
   <nav>
     <ul class="nav nav-pills pull-right">
-      <li role="presentation" class="active"><a href="#"><%= t"staticPages.home"%></a></li>
+      <li role="presentation"><%= link_to t("staticPages.home"), root_path%></a></li>
       <li role="presentation"><a href="#"><%= t"staticPages.about"%></a></li>
       <li role="presentation"><a href="#"><%= t"staticPages.contact"%></a></li>
       <!-- Them dropdown menu-->
       <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= t"staticPages.user"%> <span class="caret"></span>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <% if current_user.present? %>
+            <%=current_user.fullname %>
+          <%elsif%>
+          <%= t"staticPages.user"%>
+          <%end%>
+          <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="#"><%= t"staticPages.login"%></a></li>
-          <li><a href="#"><%= t"staticPages.register"%></a></li>
-          <li><a href="#"><%= t"staticPages.logout"%></a></li>
+          <li><%= link_to t("staticPages.login"), new_user_session_path %></li>
+          <li><%= link_to t("staticPages.register"), new_user_registration_path %></li>
+          <li><%= link_to t("staticPages.logout"), destroy_user_session_path, method: :delete %></a></li>
         </ul>
       </li>
     </ul>
   </nav>
   <h3 class="text-muted"><a href=""><span class="glyphicon glyphicon-knight" aria-hidden="true"></span> <%= t"staticPages.project_name"%></a></h3>
 </div>
+<hr>
