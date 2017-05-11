@@ -1,5 +1,5 @@
 en:
-  staticPages:
+  static_pages:
     footer_vfs: Truyen Hinh Viet Nam
     home: Home
     about: About
@@ -9,5 +9,14 @@ en:
     logout: Logout
     register: Register
     project_name: Film VFS
-
-
+  authenticate:
+    resetpass: Send me reset password
+    signup: Sign Up
+    edituser: Edit
+    email: Email address
+    password: (leave blank if you don't want to change it)
+    currentpass: (we need your current password to confirm your changes)
+    update: update
+    back: Back
+    changepass: Change your password
+    forgetpass: Forgot your password?
