@@ -3,6 +3,9 @@ class Film < ApplicationRecord
     {minimum: 2, maximum: 200}
   validates :rating_film, numericality: {only_integer: true}
   validates :count_like, numericality: {only_integer: true}
+
+  belongs_to :category
+
   ARRAY_RATE = [[I18n.t("manage_films.rate_none"), nil],
     [I18n.t("manage_films.rate_1"), I18n.t("manage_films.rate_1")],
     [I18n.t("manage_films.rate_2"), I18n.t("manage_films.rate_2")],

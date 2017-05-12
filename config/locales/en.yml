@@ -18,6 +18,9 @@ en:
     title_edit_film: Edit Film
     title_show_film: Show Film
     title_new_film: New Film
+    title_new_cate: New Category
+    title_edit_cate: Edit Category
+    list_cate: List Category
   authenticate:
     resetpass: Send me reset password
     signup: Sign Up
@@ -94,3 +97,14 @@ en:
     destroy: Destroy
     error: error
     message: prohibited this film from being saved
+  category:
+    list_cate: List Category
+    search_cate: Search Category
+    create_sucess: Category was successfully created.
+    create_notsucess: Category was not successfully created.
+    deleted: Category was successfully destroyed.
+    not_deleted: Category was not successfully destroyed.
+    not_found: Category not User has selected..!
+    message_apdate_sucess: User was successfully updated.
+    message_apdate_notsucess: User was not successfully updated.
+    new_cate: New Category
