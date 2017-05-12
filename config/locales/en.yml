@@ -9,6 +9,9 @@ en:
     logout: Logout
     register: Register
     project_name: Film VFS
+    profile: Profile
+    lst_user: List User
+    show_user: Show User
   authenticate:
     resetpass: Send me reset password
     signup: Sign Up
@@ -20,3 +23,33 @@ en:
     back: Back
     changepass: Change your password
     forgetpass: Forgot your password?
+  manage_user:
+    search_user: Sear User
+    submit: Submit
+    list_user: List User
+    you_sure: Are you sure?
+    user_activity: User
+    phone_mobile: 555-4567-890(Mobile)
+    name: Full Name
+    birthday: Birthday
+    phone_number: Phone Number
+    email: Email
+    password: Password
+    date_of_birth: Date of Birth
+    gender: Gender
+    role: Role User
+    address: Home Address
+    departmant: Department
+    programming: Programming
+    female: Female
+    profile: Profile
+    paner_time: May 05,2014,03:00 pm
+    my_sale: My Sales Performance
+    team_sale: Team Sales Performance
+    activity: Activity
+    deleted: User was successfully destroyed.
+    not_deleted: User was not successfully destroyed.
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    not_found: Find not User has selected..!
