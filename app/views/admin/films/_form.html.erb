@@ -1,0 +1,50 @@
+<div class="bs-example" data-example-id="form-validation-states">
+  <%= form_for [:admin, @film] do |f| %>
+    <% if film.errors.any? %>
+      <div id="error_explanation" class="alert-info">
+        <h3><%= pluralize(film.errors.count, t("action.error")) %>
+          <%= t "action.message" %></h3>
+        <ul>
+          <% film.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group has-success">
+      <%= f.label :name_film , class:"control-label" %><br />
+      <%= f.text_field :name_film, autofocus: true, class:"form-control" %>
+    </div>
+
+    <div class="form-group has-success">
+      <%= f.label :year_screen, class:"control-label" %><br />
+      <%= f.date_field :year_screen, autofocus: true, class:"form-control" %>
+    </div>
+
+    <div class="form-group has-success">
+      <%= f.label :rating_film, class:"control-label" %><br />
+      <%= f.select :rating_film, options_for_select(Film::ARRAY_RATE, f.object.rating_film),
+        {}, {class:"form-control"} %>
+    </div>
+
+    <div class="form-group has-success">
+      <%= f.label :count_like, class:"control-label" %><br />
+      <%= f.text_field :count_like, autofocus: true, class:"form-control" %>
+    </div>
+
+    <div class="form-group has-success">
+      <%= f.label :picture_film, class:"control-label" %><br />
+      <%= f.text_field :picture_film, autofocus: true, class:"form-control" %>
+    </div>
+
+    <div class="form-group has-success">
+      <%= f.label :link_trailer, class:"control-label" %><br />
+      <%= f.text_field :link_trailer, autofocus: true, class:"form-control" %>
+    </div>
+
+    <div class="col-md-offset-5">
+      <%= f.submit t("authenticate.signup"), class:"btn btn-success" %>
+    </div>
+  <% end %>
+</div>

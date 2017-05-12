@@ -1,4 +1,20 @@
-ActiveRecord::Schema.define(version: 20170510035601) do
+ActiveRecord::Schema.define(version: 20170515082213) do
+
+  create_table "films", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name_film"
+    t.datetime "year_screen"
+    t.string   "rating_film"
+    t.integer  "count_like"
+    t.string   "picture_film"
+    t.string   "link_trailer"
+  end
+
+  create_table "scripts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "content"
+    t.string   "status"
+    t.datetime "create_date"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false

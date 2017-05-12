@@ -1,0 +1,16 @@
+<tbody>
+  <tr>
+    <td><img src="<%= film.picture_film %>" alt="<%= film.picture_film %>"></td>
+    <td><%= film.name_film %></td>
+    <td><%= film.year_screen %></td>
+    <td><%= film.rating_film %></td>
+    <td><%= film.count_like %></td>
+    <td><%= link_to t("action.show"), admin_film_path(film.id),
+      class:"glyphicon glyphicon-upload" %></td>
+    <td><%= link_to t("action.edit"), edit_admin_film_path(film.id),
+      class:"glyphicon glyphicon-pencil" %></td>
+    <td><%= link_to t("action.destroy"), admin_film_path(film.id),
+      class:"glyphicon glyphicon-remove",
+      method: :delete, data: {confirm: t("manage_user.you_sure")} %></td>
+  </tr>
+</tbody>

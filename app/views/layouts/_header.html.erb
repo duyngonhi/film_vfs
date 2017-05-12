@@ -6,7 +6,8 @@
       <li role="presentation"><a href="#"><%= t "static_pages.contact" %></a></li>
       <!-- Them dropdown menu-->
       <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+          aria-haspopup="true" aria-expanded="false">
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           <% if current_user.present? %>
             <%= current_user.fullname %>
@@ -19,13 +20,20 @@
           <% if current_user.present? %>
             <li><%= link_to t("static_pages.profile"), admin_user_path(current_user.id) %></li>
           <% end %>
+          <% if current_user.present? && current_user.is_admin? %>
+            <li><%= link_to t("static_pages.admin_film"), admin_films_path %></li>
+            <li><%= link_to t("static_pages.admin_user"), admin_users_path %></li>
+            <li><%= link_to t("static_pages.admin_category"), new_user_session_path %></li>
+          <% end %>
           <li><%= link_to t("static_pages.login"), new_user_session_path %></li>
           <li><%= link_to t("static_pages.register"), new_user_registration_path %></li>
-          <li><%= link_to t("static_pages.logout"), destroy_user_session_path, method: :delete %></a></li>
+          <li><%= link_to t("static_pages.logout"), destroy_user_session_path,
+            method: :delete %></a></li>
         </ul>
       </li>
     </ul>
   </nav>
-  <h3 class="text-muted"><a href=""><span class="glyphicon glyphicon-knight" aria-hidden="true"></span> <%= t "static_pages.project_name" %></a></h3>
+  <h3 class="text-muted"><a href=""><span class="glyphicon glyphicon-knight"
+    aria-hidden="true"></span> <%= t "static_pages.project_name" %></a></h3>
 </div>
 <hr>
