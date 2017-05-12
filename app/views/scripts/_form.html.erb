@@ -1,0 +1,21 @@
+<div class="bs-example" data-example-id="form-validation-states">
+  <%= form_for @script do |f| %>
+    <%= render "/share/error_message", object: f.object %>
+
+    <div class="form-group has-success">
+      <%= f.label :title, class:"control-label" %><br />
+      <%= f.text_field :title, autofocus: true, class:"form-control",
+        placeholder:t("script_film.title") %>
+    </div>
+
+    <div class="form-group has-success">
+      <%= f.label :content, class:"control-label" %><br />
+      <%= f.text_area :content, autofocus: true, rows: Settings.size_row_area,
+        class:"form-control", placeholder:t("script_film.content") %>
+    </div>
+
+    <div class="col-md-offset-5">
+      <%= f.submit t("authenticate.signup"), class:"btn btn-success" %>
+    </div>
+  <% end %>
+</div>

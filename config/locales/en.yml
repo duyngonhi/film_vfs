@@ -4,6 +4,7 @@ en:
     home: Home
     about: About
     contact: Contact
+    mypages: My Pages
     user: User
     login: Login
     logout: Logout
@@ -21,6 +22,7 @@ en:
     title_new_cate: New Category
     title_edit_cate: Edit Category
     list_cate: List Category
+    title_script: Script
   authenticate:
     resetpass: Send me reset password
     signup: Sign Up
@@ -68,6 +70,8 @@ en:
     none: None
     role_user: User
     role_admin: Admin
+    follower: Follower
+    following: Following
   manage_films:
     list_film: List Films
     show_film: Show Film
@@ -108,3 +112,18 @@ en:
     message_apdate_sucess: User was successfully updated.
     message_apdate_notsucess: User was not successfully updated.
     new_cate: New Category
+  script_film:
+    title: Title
+    content: Content
+    status: Status
+    create_date: Create Date
+    init_status: "0"
+    approve_status: "1"
+    create_sucess: Script was successfully created.
+    create_notsucess: Script was not successfully created.
+    deleted: Script was successfully destroyed.
+    not_deleted: Script was not successfully destroyed.
+    not_found: Find not Script has selected..!
+    message_apdate_sucess: Script was successfully updated.
+    message_apdate_notsucess: Script was not successfully updated.
+    new_script: Post

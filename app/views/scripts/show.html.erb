@@ -1,0 +1,18 @@
+<% provide :title, t("static_pages.title_script") %>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t "manage_user.title" %> : <%= @script.title %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="panel-body">
+      <%= @script.content %>
+    </div>
+    <div class="footer">
+      <%= link_to t("authenticate.back"), :back %>
+      <%= link_to t("action.edit"), edit_script_path(@script.id),
+        class:"glyphicon glyphicon-pencil action-post-right" %>
+      <%= link_to "", script_path, class:"glyphicon glyphicon-trash", method: :delete,
+        data: {confirm: t("manage_user.you_sure")} %>
+    </div>
+  </div>
+</div>
