@@ -1,7 +1,5 @@
 <% provide :title, t("authenticate.edituser") %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <div class="alert-info"><%= devise_error_messages! %></div>
-
+<%= form_for [:admin, @user] do |f| %>
   <div class="form-group has-success">
     <%= f.label :fullname , class:"control-label" %><br />
     <%= f.text_field :fullname, autofocus: true, class:"form-control" %>
@@ -28,27 +26,9 @@
   </div>
 
   <div class="form-group has-success">
-    <%= f.label :password, class:"control-label" %> <i><%= t "authenticate.password" %></i><br />
-    <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="form-group has-success">
-    <%= f.label :password_confirmation, class:"control-label" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
-  </div>
-
-  <div class="form-group has-success">
-    <%= f.label :current_password, class:"control-label" %> <i><%= t "authenticate.currentpass" %></i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
-  </div>
-
-  <div class="form-group has-success">
     <%= f.label :role, class:"control-label" %><br />
-    <%= f.select :role, options_for_select(User::ARRAY_ROLE, f.object.role), {}, {class:"form-control"} %>
+    <%= f.select :role, options_for_select(User::ARRAY_ROLE, f.object.role), {},
+      {class:"form-control"} %>
   </div>
 
   <div class="col-md-offset-5">

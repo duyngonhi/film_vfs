@@ -53,3 +53,9 @@ en:
     edit: Edit
     destroy: Destroy
     not_found: Find not User has selected..!
+    admin_update_sucess: User was successfully update by admin !
+    admin_update_not_sucess: User was not successfully update by admin !
+  role:
+    none: None
+    role_user: User
+    role_admin: Admin
