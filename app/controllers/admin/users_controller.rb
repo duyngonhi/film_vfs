@@ -1,12 +1,15 @@
 class Admin::UsersController < ApplicationController
-  include UserController
-  before_action :load_user, only: [:show, :destroy]
+  include ResponseMessage
+  before_action :load_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
   end
 
   def show
+  end
+
+  def edit
   end
 
   def destroy
@@ -17,7 +20,20 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update user_params
+      response_to_message t("manage_user.admin_update_sucess"), admin_users_url
+    else
+      response_to_message t("manage_user.admin_update_not_sucess"), admin_users_url
+    end
+  end
+
   private
+
+  def user_params
+    params.require(:user).permit(:fullname, :birthday, :address, :phone,
+      :email, :role)
+  end
 
   def load_user
     begin
