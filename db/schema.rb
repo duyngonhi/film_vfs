@@ -9,10 +9,12 @@ ActiveRecord::Schema.define(version: 20170517071848) do
   create_table "films", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name_film"
     t.datetime "year_screen"
-    t.string   "rating_film"
-    t.integer  "count_like"
+    t.integer  "rating_film",  default: 0
+    t.integer  "count_like",   default: 0
     t.string   "picture_film"
     t.string   "link_trailer"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_films_on_category_id", using: :btree
   end
 
   create_table "scripts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

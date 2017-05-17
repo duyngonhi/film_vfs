@@ -1,16 +1,6 @@
 <div class="bs-example" data-example-id="form-validation-states">
   <%= form_for [:admin, @film] do |f| %>
-    <% if film.errors.any? %>
-      <div id="error_explanation" class="alert-info">
-        <h3><%= pluralize(film.errors.count, t("action.error")) %>
-          <%= t "action.message" %></h3>
-        <ul>
-          <% film.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= render "/share/error_message", object: f.object %>
 
     <div class="form-group has-success">
       <%= f.label :name_film , class:"control-label" %><br />
@@ -23,14 +13,9 @@
     </div>
 
     <div class="form-group has-success">
-      <%= f.label :rating_film, class:"control-label" %><br />
-      <%= f.select :rating_film, options_for_select(Film::ARRAY_RATE, f.object.rating_film),
-        {}, {class:"form-control"} %>
-    </div>
-
-    <div class="form-group has-success">
-      <%= f.label :count_like, class:"control-label" %><br />
-      <%= f.text_field :count_like, autofocus: true, class:"form-control" %>
+      <%= f.label :category_id, class:"control-label" %><br />
+      <%= f.select :category_id, options_for_select(@categories.collect{ |category|
+        [category.name, category.id]}, params[:category_id]), {}, {class:"form-control"} %>
     </div>
 
     <div class="form-group has-success">
