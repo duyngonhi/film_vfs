@@ -8,6 +8,10 @@ class User < ApplicationRecord
   ARRAY_ROLE = [[I18n.t("role.none"), nil], [I18n.t("role.role_user"), I18n.t("role.role_user")],
     [I18n.t("role.role_admin"), I18n.t("role.role_admin")]]
 
+  def is_admin?
+    role == Setting.role.role_admin
+  end
+
   private
 
   def downcase_email

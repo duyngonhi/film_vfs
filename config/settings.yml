@@ -1,2 +1,4 @@
 email:
   from_email: "ngo.van.duy@framgia.com"
+role:
+  role_admin: "Admin"

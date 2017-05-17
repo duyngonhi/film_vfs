@@ -12,6 +12,12 @@ en:
     profile: Profile
     lst_user: List User
     show_user: Show User
+    admin_film: Manage Film
+    admin_user: Manage User
+    admin_category: Manage Category
+    title_edit_film: Edit Film
+    title_show_film: Show Film
+    title_new_film: New Film
   authenticate:
     resetpass: Send me reset password
     signup: Sign Up
@@ -59,3 +65,32 @@ en:
     none: None
     role_user: User
     role_admin: Admin
+  manage_films:
+    list_film: List Films
+    show_film: Show Film
+    search_film: Search Film
+    name_film: Name Film
+    year_screen: Year Screen
+    raiting: Rating
+    count_like: Vote
+    not_found: Find not Film has selected..!
+    message_apdate_sucess: User was successfully updated.
+    message_apdate_notsucess: User was not successfully updated.
+    create_sucess: Film was successfully created.
+    create_notsucess: Film was not successfully created.
+    deleted: Film was successfully destroyed.
+    not_deleted: Film was not successfully destroyed.
+    rate_none: None
+    rate_1: 1
+    rate_2: 2
+    rate_3: 3
+    rate_4: 4
+    rate_5: 5
+    only_integer: Integer only. No sign allowed.
+    new_film: New Film
+  action:
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    error: error
+    message: prohibited this film from being saved
