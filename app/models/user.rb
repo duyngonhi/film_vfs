@@ -9,7 +9,7 @@ class User < ApplicationRecord
     [I18n.t("role.role_admin"), I18n.t("role.role_admin")]]
 
   def is_admin?
-    role == Setting.role.role_admin
+    role == Settings.role.role_admin
   end
 
   private

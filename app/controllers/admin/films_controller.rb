@@ -14,9 +14,11 @@ class Admin::FilmsController < ApplicationController
 
   def update
     if @film.update film_params
-      response_to_message t("manage_films.message_apdate_sucess"), admin_films_url
+      response_to_message t("manage_films.message_apdate_sucess"),
+        admin_categories_url
     else
-      response_to_message t("manage_films.message_apdate_notsucess"), admin_films_url
+      response_to_message t("manage_films.message_apdate_notsucess"),
+        admin_categories_url
     end
   end
 
@@ -44,8 +46,8 @@ class Admin::FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit :name_film, :year_screen, :rating_film, :count_like,
-      :picture_film, :link_trailer
+    params.require(:film).permit :name_film, :year_screen, :rating_film,
+      :count_like, :picture_film, :link_trailer
   end
 
   def load_film
