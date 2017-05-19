@@ -32,4 +32,5 @@
   <%= will_paginate @films %>
 </div>
 <%= link_to t("manage_films.new_film"), new_admin_film_path %>
+<%= link_to t("manage_films.export_csv"), Settings.url_export_film, class:"right-post" %>
 <br>
