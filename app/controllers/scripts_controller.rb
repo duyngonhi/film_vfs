@@ -3,7 +3,7 @@ class ScriptsController < ApplicationController
   before_action :load_script, only: [:show, :edit, :update, :destroy]
 
   def index
-    @scripts = current_user.scripts
+    @scripts = current_user.scripts.paginate page: params[:page], per_page: 10
   end
 
   def show

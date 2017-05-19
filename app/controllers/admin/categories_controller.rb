@@ -3,7 +3,7 @@ class Admin::CategoriesController < ApplicationController
   before_action :load_catagory, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.paginate page: params[:page], per_page: 10
   end
 
   def show

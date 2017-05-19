@@ -3,33 +3,35 @@ class Admin::FilmsController < ApplicationController
   before_action :load_film, only: [:show, :edit, :update, :destroy]
 
   def index
-    @films = Film.all
+    @films = Film.paginate page: params[:page], per_page: 10
   end
 
   def show
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
     if @film.update film_params
       response_to_message t("manage_films.message_apdate_sucess"),
-        admin_categories_url
+        admin_films_url
     else
       response_to_message t("manage_films.message_apdate_notsucess"),
-        admin_categories_url
+        admin_films_url
     end
   end
 
   def new
     @film = Film.new
+    @categories = Category.all
   end
 
   def create
     @film = Film.new film_params
     if @film.save
-      response_to_message t("manage_films.create_sucess"), new_admin_film_url
+      response_to_message t("manage_films.create_sucess"), admin_films_url
     else
       response_message_errors @film
     end
@@ -46,8 +48,8 @@ class Admin::FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit :name_film, :year_screen, :rating_film,
-      :count_like, :picture_film, :link_trailer
+    params.require(:film).permit :name_film, :year_screen, :picture_film,
+      :link_trailer, :category_id
   end
 
   def load_film

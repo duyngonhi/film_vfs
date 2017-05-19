@@ -1,16 +1,6 @@
 <div class="bs-example" data-example-id="form-validation-states">
   <%= form_for [:admin, @category] do |f| %>
-    <% if category.errors.any? %>
-      <div id="error_explanation" class="alert-info">
-        <h3><%= pluralize(category.errors.count, t("action.error")) %>
-          <%= t "action.message" %></h3>
-        <ul>
-          <% category.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= render "/share/error_message", object: f.object %>
 
     <div class="form-group has-success">
       <%= f.label :name , class:"control-label" %><br />

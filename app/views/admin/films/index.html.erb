@@ -31,6 +31,7 @@
       <%= render partial: "film", collection: @films %>
     </table>
   </div>
+  <%= will_paginate @films %>
 </div>
 <%= link_to t("manage_films.new_film"), new_admin_film_path %>
 <br>

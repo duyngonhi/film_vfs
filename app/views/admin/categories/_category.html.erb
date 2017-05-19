@@ -2,8 +2,10 @@
   <tr>
     <td><%= category.name %></td>
     <td><%= category.created_at %></td>
-    <td><%= link_to t("action.edit"), edit_admin_category_path(category.id) %></td>
+    <td><%= link_to t("action.edit"), edit_admin_category_path(category.id),
+      class:"glyphicon glyphicon-pencil" %></td>
     <td><%= link_to t("action.destroy"), admin_category_path(category.id),
+      class:"glyphicon glyphicon-remove",
       method: :delete, data: {confirm: t("manage_user.you_sure")} %></td>
   </tr>
 </tbody>

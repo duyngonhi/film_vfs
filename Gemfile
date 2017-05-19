@@ -20,6 +20,8 @@ gem "bootstrap-sass", "3.3.6"
 gem "devise"
 gem "pry-rails"
 gem "config"
+gem "will_paginate", "~> 3.1.0"
+gem "ransack"
 
 group :development, :test do
   gem "pry"

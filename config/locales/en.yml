@@ -112,6 +112,8 @@ en:
     message_apdate_sucess: User was successfully updated.
     message_apdate_notsucess: User was not successfully updated.
     new_cate: New Category
+    cate: Name Category
+    create_at: Create At
   script_film:
     title: Title
     content: Content

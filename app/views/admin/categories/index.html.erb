@@ -1,6 +1,6 @@
 <% provide :title, t("static_pages.list_cate") %>
 <div class="container-fluid">
-  <a href="#" class="navbar-brand"><%= t "manage_films.search_film" %></a>
+  <a href="#" class="navbar-brand"><%= t "category.search_cate" %></a>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
     <form class="navbar-form navbar-left">
       <div class="form-group">
@@ -19,14 +19,15 @@
     <table class="table table-bordered table-striped table-hover">
       <thead>
         <tr>
-          <th><%= t "manage_films.name_film" %></th>
-          <th><%= t "manage_films.year_screen" %></th>
+          <th><%= t "category.cate" %></th>
+          <th><%= t "category.create_at" %></th>
           <th colspan="2"></th>
         </tr>
       </thead>
       <%= render partial: "category", collection: @categories %>
     </table>
   </div>
+  <%= will_paginate @categories %>
 </div>
 <%= link_to t("category.new_cate"), new_admin_category_path %>
 <br>
