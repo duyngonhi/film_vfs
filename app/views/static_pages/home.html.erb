@@ -4,7 +4,8 @@
     <%= search_form_for @search, url: root_path,
       class:"navbar-form navbar-left" do |f| %>
       <div class="form-group">
-        <%= f.search_field :name_film_cont, autofocus: true, class:"form-control" %>
+        <%= f.search_field :name_film_cont, autofocus: true,
+          class:"form-control" %>
       </div>
       <%= f.submit t("action.search"), class:"btn btn-success" %></th>
     <% end %>
@@ -27,13 +28,22 @@
           <hr class="line">
           <div class="row">
             <div class="col-md-6 col-sm-6">
-              <span><%= r.count_like %> <%= t"action.like_label" %></span>
+              <span><%= r.liked.count %> <%= t"action.like_label" %></span>
             </div>
             <div class="col-md-6 col-sm-6">
-              <button class="btn btn-success btn-xs right glyphicon
-                glyphicon-thumbs-down"></button>
-              <button class="btn btn-success btn-xs right glyphicon
-                glyphicon-thumbs-up"></button>
+              <% if current_user.present? %>
+                <% if current_user.liking? r %>
+                  <div onclick="click_unlike(<%= r.id %>)"
+                    class="btn btn-success btn-xs right glyphicon glyphicon-thumbs-down">
+                    <%= t("like.unlike") %>
+                  </div>
+                <% else %>
+                  <div onclick="click_like(<%= r.id %>)"
+                    class="btn btn-success btn-xs right glyphicon glyphicon-thumbs-up">
+                    <%= t("like.like") %>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </span>

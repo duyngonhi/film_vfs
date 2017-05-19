@@ -1,0 +1,31 @@
+<% provide :title, t("static_pages.title_script") %>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t "manage_user.title" %> : <%= @script.title %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="panel-body">
+      <%= @script.content %>
+    </div>
+
+    <div class="footer">
+      <table class="table">
+      <tr>
+        <th><%= link_to t("authenticate.back"), admin_scripts_path %></th>
+        <th>
+          <%= form_for [:admin, @script] do |f| %>
+            <%= f.hidden_field :status, autofocus: true, value: :approve %>
+            <%= f.submit t("action.approve"), class:"btn btn-success btn-xs" %>
+          <% end %>
+        </th>
+        <th>
+          <%= form_for [:admin, @script] do |f| %>
+            <%= f.hidden_field :status, autofocus: true, value: :reject %>
+            <%= f.submit t("action.reject"), class:"btn btn-success btn-xs" %>
+          <% end %>
+        </th>
+      </tr>
+      </table>
+    </div>
+  </div>
+</div>

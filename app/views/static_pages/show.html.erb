@@ -1,3 +1,4 @@
+<% provide :title, t("manage_films.detail") %>
 <div class="row">
   <div class="col-xs-4 item-photo">
     <img src="<%= @film.picture_film %>" />
@@ -5,10 +6,10 @@
   <div class="col-xs-5">
     <h3><%= @film.name_film %></h3>
     <h6 class="title-price"><small><%= t "script_film.like_film" %></small></h6>
-    <h3><%= @film.count_like %></h3>
+    <h3><%= @film.liked.count %></h3>
     <div class="section">
       <%= t "script_film.rating_star" %></small></h6>
-      <% r.rating_film.times.each do %>
+      <% @film.calculate_rating_film(@film.liked.count).times.each do %>
         <span class="glyphicon glyphicon-star"></span>
       <% end %>
     </div>
