@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-4 item-photo">
+    <img src="<%= @film.picture_film %>" />
+  </div>
+  <div class="col-xs-5">
+    <h3><%= @film.name_film %></h3>
+    <h6 class="title-price"><small><%= t "script_film.like_film" %></small></h6>
+    <h3><%= @film.count_like %></h3>
+    <div class="section">
+      <%= t "script_film.rating_star" %></small></h6>
+      <% r.rating_film.times.each do %>
+        <span class="glyphicon glyphicon-star"></span>
+      <% end %>
+    </div>
+    <div class="section">
+      <h6 class="title-attr"><small><%= t "script_film.descript" %></small></h6>
+      <%= t "manage_films.discript" %>
+    </div>
+    <%= link_to t("script_film.trailer"), @film.link_trailer %>
+  </div>
+</div>
+<%= link_to t("authenticate.back"), :back %>
