@@ -1,9 +1,13 @@
 class Admin::FilmsController < ApplicationController
   include ResponseMessage
+  before_action :checking_logged_user
+  before_action :checking_admin, only: [:index, :edit, :update, :destroy]
   before_action :load_film, only: [:show, :edit, :update, :destroy]
 
   def index
-    @films = Film.paginate page: params[:page], per_page: 10
+    @search = Film.ransack params[:q]
+    @films = @search.result.paginate page: params[:page],
+      per_page: Settings.paging
   end
 
   def show
@@ -55,7 +59,7 @@ class Admin::FilmsController < ApplicationController
   def load_film
     begin
       @film = Film.find params[:id]
-    rescue Exception => e
+    rescue Exception
       response_to_message t("manage_films.not_found"), admin_films_url
     end
   end

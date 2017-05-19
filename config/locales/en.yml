@@ -34,6 +34,7 @@ en:
     back: Back
     changepass: Change your password
     forgetpass: Forgot your password?
+    submid: Submit
   manage_user:
     search_user: Sear User
     submit: Submit
@@ -101,6 +102,7 @@ en:
     destroy: Destroy
     error: error
     message: prohibited this film from being saved
+    search: Search
   category:
     list_cate: List Category
     search_cate: Search Category
@@ -129,3 +131,4 @@ en:
     message_apdate_sucess: Script was successfully updated.
     message_apdate_notsucess: Script was not successfully updated.
     new_script: Post
+    search: Search

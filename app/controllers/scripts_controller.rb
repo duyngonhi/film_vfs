@@ -3,7 +3,9 @@ class ScriptsController < ApplicationController
   before_action :load_script, only: [:show, :edit, :update, :destroy]
 
   def index
-    @scripts = current_user.scripts.paginate page: params[:page], per_page: 10
+    @search = current_user.scripts.ransack params[:q]
+    @scripts = @search.result.paginate page: params[:page],
+      per_page: Settings.paging
   end
 
   def show
@@ -50,7 +52,7 @@ class ScriptsController < ApplicationController
   def load_script
     begin
       @script = Script.find params[:id]
-    rescue Exception => e
+    rescue Exception
       response_to_message t("script_film.not_found"), scripts_url
     end
   end

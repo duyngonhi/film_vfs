@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, :configure_permitted_account_update,
     if: :devise_controller?
 
+  protected
+
+  def checking_admin
+    return if current_user.present? && current_user.is_admin?
+    redirect_to root_path
+  end
+
+  def checking_logged_user
+    return if current_user.present?
+    redirect_to new_user_session_url
+  end
+
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|

@@ -1,5 +1,6 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'variable';
 
 .margin-container {
   margin-top: 10px;
@@ -14,25 +15,19 @@
 }
 
 .dropdown-user {
+  height: 100%;
   margin: 13px 0;
   padding: 5px;
-  height: 100%;
 }
 
 .dropdown-user:hover {
   cursor: pointer;
 }
 
-.table-user-information > tbody > tr {
-  border-top: 1px solid #DDDDDD;
-}
-
-.table-user-information > tbody > tr:first-child {
-  border-top: 0;
-}
-
-.table-user-information > tbody > tr > td {
-  border-top: 0;
+.table-user-information {
+  tbody tr {
+    border-top: 1px solid $boder;
+  }
 }
 
 .toppad {
@@ -43,17 +38,17 @@
   margin-top: 20px;
 }
 
-a.list-group-item {
-  height:auto;
-  min-height:220px;
-}
+.list-group-item {
+  height: auto;
+  min-height: 220px;
 
-a.list-group-item.active small {
-  color:#fff;
+  .active small {
+    color: $textsmall;
+  }
 }
 
 .stars {
-  margin:20px auto 1px;
+  margin: 20px auto 1px;
 }
 
 .new-script {
@@ -63,4 +58,12 @@ a.list-group-item.active small {
 .action-post-right {
   margin-left: 900px;
   margin-right: 20px;
+}
+
+.right-post {
+  margin-left: 850px;
+}
+
+.center {
+  text-align: center;
 }

@@ -1,11 +1,11 @@
 <tbody>
   <tr>
-    <td><img src="<%= film.picture_film %>" alt="<%= film.picture_film %>"></td>
+    <td><img src="<%= film.picture_film %>" alt=""></td>
     <td><%= film.name_film %></td>
     <td><%= film.year_screen %></td>
     <td><%= film.rating_film %></td>
     <td><%= film.count_like %></td>
-    <td><%= link_to t("action.show"), admin_film_path(film.id),
+    <td><%= link_to t("action.show"), static_page_path(film.id),
       class:"glyphicon glyphicon-upload" %></td>
     <td><%= link_to t("action.edit"), edit_admin_film_path(film.id),
       class:"glyphicon glyphicon-pencil" %></td>
