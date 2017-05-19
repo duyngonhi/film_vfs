@@ -1,0 +1,38 @@
+<% provide :title, t("authenticate.edituser") %>
+<%= form_for @user do |f| %>
+  <div class="form-group has-success">
+    <%= f.label :fullname , class:"control-label" %><br />
+    <%= f.text_field :fullname, autofocus: true, class:"form-control" %>
+  </div>
+
+  <div class="form-group has-success">
+    <%= f.label :birthday, class:"control-label" %><br />
+    <%= f.date_field :birthday, autofocus: true, class:"form-control" %>
+  </div>
+
+  <div class="form-group has-success">
+    <%= f.label :address, class:"control-label" %><br />
+    <%= f.text_field :address, autofocus: true, class:"form-control" %>
+  </div>
+
+  <div class="form-group has-success">
+    <%= f.label :phone, class:"control-label" %><br />
+    <%= f.text_field :phone, autofocus: true, class:"form-control" %>
+  </div>
+
+  <div class="form-group has-success">
+    <%= f.label :email, class:"control-label" %><br />
+    <%= f.email_field :email, autofocus: true, class:"form-control" %>
+  </div>
+
+  <div class="form-group has-success">
+    <%= f.label :role, class:"control-label" %><br />
+    <%= f.select :role, options_for_select(User::ARRAY_ROLE, f.object.role), {},
+      {class:"form-control"} %>
+  </div>
+
+  <div class="col-md-offset-5">
+    <%= f.submit t("authenticate.update"), class:"btn btn-success" %>
+  </div>
+<% end %>
+<%= link_to t("authenticate.back"), :back %>

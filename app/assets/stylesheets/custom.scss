@@ -67,3 +67,127 @@
 .center {
   text-align: center;
 }
+
+h4 {
+  font-weight: 600;
+}
+
+p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.price {
+  color: $price;
+  font-size: 30px;
+  margin: 0 auto;
+}
+
+.right {
+  border-bottom: 2px solid $rightsolid;
+  float: right;
+}
+
+.thumbnail {
+  opacity: .70;
+  transition: all .5s;
+}
+
+.thumbnail:hover {
+  box-shadow: 0 0 10px $shadowthum;
+  opacity: 1;
+}
+
+.line {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 770px) {
+  .right {
+    float: left;
+    width: 100%;
+  }
+}
+
+ul > li {
+  cursor: pointer;
+  font-weight: lighter;
+  margin-right: 25px;
+}
+
+.item-photo {
+  align-items: center;
+  border-right: 1px solid $soliditem;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-items {
+  display: inline-flex;
+  font-size: 11px;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.section {
+  background: $bground;
+  margin-left: -15px;
+  padding: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+
+  div {
+    display: inline-flex;
+    width: 100%;
+
+    input {
+      font-size: 10px;
+      margin: 0;
+      max-width: 18%;
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: center;
+    }
+  }
+}
+
+.title-price {
+  color: $black;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+
+.title-attr {
+  color: $black;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.btn-minus {
+  align-items: center;
+  border: 1px solid $gray;
+  border-radius: 2px;
+  border-right: 0;
+  cursor: pointer;
+  display: flex;
+  font-size: 7px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.attr .attr2 {
+  border: 1 solid $gray;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 10px;
+  height: 20px;
+  margin-right: 5px;
+  padding: 2px;
+}
+
+.attr .active .attr2.active {
+  border: 1 solid $orange;
+}

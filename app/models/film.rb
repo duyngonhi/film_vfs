@@ -6,6 +6,10 @@ class Film < ApplicationRecord
 
   belongs_to :category
 
+  has_many :passive_likes, class_name: Like.name,
+    foreign_key: :like_film_id, dependent: :destroy
+  has_many :liked, through: :passive_likes, source: :like_user
+
   ARRAY_RATE = [[I18n.t("manage_films.rate_none"), nil],
     [I18n.t("manage_films.rate_1"), I18n.t("manage_films.rate_1")],
     [I18n.t("manage_films.rate_2"), I18n.t("manage_films.rate_2")],
@@ -21,6 +25,15 @@ class Film < ApplicationRecord
           csv << film.attributes.values_at(*column_names)
         end
       end
+    end
+  end
+
+  def calculate_rating_film count_like
+    rate = count_like/2
+    if rate >= 5
+      5
+    else
+      rate
     end
   end
 end

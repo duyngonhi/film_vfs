@@ -1,9 +1,10 @@
-ActiveRecord::Schema.define(version: 20170522091249) do
+ActiveRecord::Schema.define(version: 20170525093250) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "target_id"
-    t.string   "action_type"
+    t.integer  "action_type"
+    t.string   "content"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
@@ -24,6 +25,26 @@ ActiveRecord::Schema.define(version: 20170522091249) do
     t.string   "link_trailer"
     t.integer  "category_id"
     t.index ["category_id"], name: "index_films_on_category_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "like_user_id"
+    t.integer  "like_film_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["like_film_id"], name: "index_likes_on_like_film_id", using: :btree
+    t.index ["like_user_id", "like_film_id"], name: "index_likes_on_like_user_id_and_like_film_id", unique: true, using: :btree
+    t.index ["like_user_id"], name: "index_likes_on_like_user_id", using: :btree
+  end
+
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
   end
 
   create_table "scripts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

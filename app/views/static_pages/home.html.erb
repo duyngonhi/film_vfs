@@ -4,7 +4,8 @@
     <%= search_form_for @search, url: root_path,
       class:"navbar-form navbar-left" do |f| %>
       <div class="form-group">
-        <%= f.search_field :name_film_cont, autofocus: true, class:"form-control" %>
+        <%= f.search_field :name_film_cont, autofocus: true,
+          class:"form-control" %>
       </div>
       <%= f.submit t("action.search"), class:"btn btn-success" %></th>
     <% end %>
@@ -27,13 +28,23 @@
           <hr class="line">
           <div class="row">
             <div class="col-md-6 col-sm-6">
-              <span><%= r.count_like %> <%= t"action.like_label" %></span>
+              <span><%= r.liked.count %> <%= t"action.like_label" %></span>
             </div>
             <div class="col-md-6 col-sm-6">
-              <button class="btn btn-success btn-xs right glyphicon
-                glyphicon-thumbs-down"></button>
-              <button class="btn btn-success btn-xs right glyphicon
-                glyphicon-thumbs-up"></button>
+              <% if current_user.present? %>
+                <% if current_user.liking? r %>
+                  <%= link_to t("like.unlike"), like_path(r.id),
+                    class:"btn btn-success btn-xs right glyphicon
+                      glyphicon-thumbs-down", method: :delete %>
+                <% else %>
+                  <%= form_for(@active_like, remote: true) do |f| %>
+                    <div><%= hidden_field_tag :like_film_id, r.id %></div>
+                    <%= f.submit  t("like.like"),
+                      class:"btn btn-success btn-xs right glyphicon
+                        glyphicon-thumbs-up" %>
+                  <% end %>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </span>

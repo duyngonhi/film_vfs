@@ -1,0 +1,19 @@
+<tbody>
+  <tr>
+    <td><span class="glyphicon glyphicon-folder-open"></span></td>
+    <td><%= link_to script.title, admin_script_path(script.id) %></td>
+    <td><%= script.content %></td>
+    <td>
+      <% if script.request? %>
+        <span class="glyphicon glyphicon-flag"></span>
+      <% end %>
+      <% if script.approve? %>
+        <span class="glyphicon glyphicon-ok-circle"></span>
+      <% end %>
+      <% if script.reject? %>
+        <span class="glyphicon glyphicon-remove-circle"></span>
+      <% end %>
+    </td>
+    <td><%= script.created_at %></td>
+  </tr>
+</tbody>

@@ -1,0 +1,31 @@
+<% provide :title, t("static_pages.title_script") %>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t "manage_user.list_film" %></h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <%= search_form_for @search do |f| %>
+            <th></th>
+            <th class="center"><%= f.search_field :title_cont, autofocus: true %></th>
+            <th class="center"><%= f.search_field :content_cont, autofocus: true %></th>
+            <th colspan="2" class="center"><%= f.submit t("action.search"),
+              class:"btn btn-success" %></th>
+          <% end %>
+        </tr>
+        <tr>
+          <th></th>
+          <th><%= sort_link @search, :title, t("script_film.title") %></th>
+          <th><%= sort_link @search, :content, t("script_film.content") %></th>
+          <th><%= t "script_film.status" %></th>
+          <th><%= sort_link @search, :created_at, t("script_film.create_date") %></th>
+        </tr>
+      </thead>
+      <%= render partial: "script", collection: @scripts %>
+    </table>
+  </div>
+  <%= will_paginate @scripts %>
+</div>
+<br>

@@ -1,0 +1,100 @@
+<% provide :title, t("static_pages.show_user") %>
+<div class="row">
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas margin-top-menuleft">
+    <div class="sidebar-nav">
+      <ul class="nav">
+        <li><h4><a><%= @user.fullname %> -> <%= "#{@user.following.count}
+          #{t"activity.following"}" %></a></h4></li>
+        <% @user.following.each do |f| %>
+          <li><%= link_to "#{f.fullname}", user_path(f.id) %></li>
+        <% end %>
+
+        <li><h4><a><%= "#{@user.followers.count} #{t"activity.followers"}" %> ->
+          <%= @user.fullname %></a></h4></li>
+        <% @user.followers.each do |f| %>
+          <li><%= link_to "#{f.fullname}", user_path(f.id) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-6 toppad" >
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= t "manage_user.profile" %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic"
+            src="https://viblo.asia/uploads/avatar/60a09763-234b-47c9-8f2d-78a50d7584f9.jpg"
+            class="img-circle img-responsive">
+          </div>
+          <div class=" col-md-9 col-lg-9 ">
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <td><%= t "manage_user.departmant" %></td>
+                  <td><%= t "manage_user.programming" %></td>
+                </tr>
+                <tr>
+                  <td><%= t "manage_user.date_of_birth" %></td>
+                  <td><%= @user.birthday %></td>
+                </tr>
+                <tr>
+                  <td><%= t "manage_user.gender" %></td>
+                  <td><%= t "manage_user.female" %></td>
+                </tr>
+                <tr>
+                  <td><%= t "manage_user.address" %></td>
+                  <td><%= @user.address %></td>
+                </tr>
+                <tr>
+                  <td><%= t "manage_user.email" %></td>
+                  <td><a href="#"><%= @user.email %></a></td>
+                </tr>
+                <tr>
+                  <td><%= t "manage_user.phone_number" %></td>
+                  <td><%= @user.phone %><br><br><%= t "manage_user.phone_mobile" %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <% if @user.checking_current_user? current_user.id, @user.id %>
+          <%= link_to t("action.edit"), edit_user_path(@user.id),
+            class:"btn btn-sm btn-primary glyphicon glyphicon-pencil" %>
+        <% end %>
+        <span class="glyphicon glyphicon-time btn"></span>
+        <span class="pull-right">
+        <% if current_user != @user %>
+          <% if current_user.following? @user %>
+            <%= form_for(@active_relationship,
+              html: {method: :delete}, remote: true) do |f| %>
+              <%= f.submit t("activity.un_follow"), class:"btn btn-sm btn-danger" %>
+            <% end %>
+          <% else %>
+            <%= form_for(@active_relationship, remote: true) do |f| %>
+              <div><%= hidden_field_tag :followed_id, @user.id %></div>
+              <%= f.submit  t("activity.follow"), class:"btn btn-sm btn-warning" %>
+            <% end %>
+          <% end %>
+        <% end %>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas margin-top-menuleft">
+    <div class="well sidebar-nav">
+      <ul class="nav">
+        <li><h4><a><%= t "manage_user.user_activity" %> : <%= @user.fullname %></a></h4></li>
+        <% @activities.each() do |f| %>
+          <li><a><%= "#{f.content} : #{f.created_at}" %></a></li>
+        <% end %>
+        <%= will_paginate @activities %>
+      </ul>
+    </div>
+  </div>
+</div>
