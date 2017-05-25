@@ -1,2 +1,43 @@
 <% provide :title, t("static_pages.home") %>
-<h1>StaticPages#home</h1>
+<div class="container-fluid">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <%= search_form_for @search, url: root_path,
+      class:"navbar-form navbar-left" do |f| %>
+      <div class="form-group">
+        <%= f.search_field :name_film_cont, autofocus: true, class:"form-control" %>
+      </div>
+      <%= f.submit t("action.search"), class:"btn btn-success" %></th>
+    <% end %>
+  </div>
+</div>
+
+<% @films.each_slice(Settings.line_show).to_a.each do |f| %>
+  <div class="row">
+    <% f.each do |r| %>
+      <div class="col-md-3 col-sm-6">
+        <span class="thumbnail">
+          <%= link_to image_tag(r.picture_film), static_page_path(r.id) %>
+          <h4><%= r.name_film %></h4>
+          <div class="ratings">
+            <% r.rating_film.times.each do %>
+              <span class="glyphicon glyphicon-star"></span>
+            <% end %>
+          </div>
+          <p><%= t "manage_films.discript" %></p>
+          <hr class="line">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <span><%= r.count_like %> <%= t"action.like_label" %></span>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <button class="btn btn-success btn-xs right glyphicon
+                glyphicon-thumbs-down"></button>
+              <button class="btn btn-success btn-xs right glyphicon
+                glyphicon-thumbs-up"></button>
+            </div>
+          </div>
+        </span>
+      </div>
+    <% end %>
+  </div>
+<% end %>

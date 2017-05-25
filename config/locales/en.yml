@@ -96,6 +96,7 @@ en:
     rate_5: 5
     only_integer: Integer only. No sign allowed.
     new_film: New Film
+    discript: "desciption film"
   action:
     show: Show
     edit: Edit
@@ -103,6 +104,9 @@ en:
     error: error
     message: prohibited this film from being saved
     search: Search
+    like: Like
+    dislike: Dislike
+    like_label: like
   category:
     list_cate: List Category
     search_cate: Search Category
@@ -132,3 +136,7 @@ en:
     message_apdate_notsucess: Script was not successfully updated.
     new_script: Post
     search: Search
+    rating_star: Rating Star
+    descript: Description
+    trailer: Trailer
+    like_film: like film
