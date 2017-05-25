@@ -97,6 +97,7 @@ en:
     only_integer: Integer only. No sign allowed.
     new_film: New Film
     discript: "desciption film"
+    export_csv: Export CSV
   action:
     show: Show
     edit: Edit

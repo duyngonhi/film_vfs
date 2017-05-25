@@ -5,3 +5,4 @@ role:
 size_row_area: 10
 paging: 10
 line_show: 4
+url_export_film: /admin/films.csv
