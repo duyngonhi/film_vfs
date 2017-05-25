@@ -1,5 +1,5 @@
 class Admin::FilmsController < ApplicationController
-  include ResponseMessage
+  include ResponseMessage, ExportCsv
   before_action :checking_logged_user
   before_action :checking_admin, only: [:index, :edit, :update, :destroy]
   before_action :load_film, only: [:show, :edit, :update, :destroy]
@@ -8,6 +8,7 @@ class Admin::FilmsController < ApplicationController
     @search = Film.ransack params[:q]
     @films = @search.result.paginate page: params[:page],
       per_page: Settings.paging
+    respond_to_csv @films
   end
 
   def show

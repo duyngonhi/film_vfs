@@ -23,6 +23,7 @@ en:
     title_edit_cate: Edit Category
     list_cate: List Category
     title_script: Script
+    admin_script: Review Script
   authenticate:
     resetpass: Send me reset password
     signup: Sign Up
@@ -79,6 +80,7 @@ en:
     search_film: Search Film
     name_film: Name Film
     year_screen: Year Screen
+    detail: Detail
     raiting: Rating
     count_like: Vote
     not_found: Find not Film has selected..!
@@ -97,6 +99,7 @@ en:
     only_integer: Integer only. No sign allowed.
     new_film: New Film
     discript: "desciption film"
+    export_csv: Export CSV
   action:
     show: Show
     edit: Edit
@@ -107,6 +110,8 @@ en:
     like: Like
     dislike: Dislike
     like_label: like
+    approve: Approve
+    reject: Reject
   category:
     list_cate: List Category
     search_cate: Search Category
@@ -140,3 +145,21 @@ en:
     descript: Description
     trailer: Trailer
     like_film: like film
+  activity:
+    submit_script: Submit Script
+    follow: follow
+    un_follow: unfollow
+    following: following
+    followers: followers
+    follow_massage: follow successfully
+    un_follow_massage: un follow successfully
+    cant_relationship: cant find relationship
+    user_nill: profile user nil
+    message_approve: Script was successfully approve.
+    message_reject: Script was successfully reject.
+    message_fail: fails
+  like:
+    like: like film
+    un_like: un like film
+    like: like
+    unlike: dislike

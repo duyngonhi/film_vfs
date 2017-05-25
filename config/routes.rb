@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     resources :films
     resources :categories
     resources :films
+    resources :scripts
   end
 
   resources :scripts
   resources :static_pages
+  resources :users
+  resources :likes
+  resources :relationships
 end
