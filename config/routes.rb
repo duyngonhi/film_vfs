@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :scripts
+  resources :static_pages
 end

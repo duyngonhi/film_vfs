@@ -3,3 +3,4 @@ email:
 role:
   role_admin: "Admin"
 size_row_area: 10
+paging: 10

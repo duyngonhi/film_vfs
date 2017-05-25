@@ -1,9 +1,13 @@
 class Admin::CategoriesController < ApplicationController
   include ResponseMessage
-  before_action :load_catagory, only: [:show, :edit, :update, :destroy]
+  before_action :checking_logged_user
+  before_action :checking_admin, only: [:index, :edit, :update, :destroy]
+  before_action :load_catagory, only: [:edit, :update, :destroy]
 
   def index
-    @categories = Category.paginate page: params[:page], per_page: 10
+    @search = Category.ransack params[:q]
+    @categories = @search.result.paginate page: params[:page],
+      per_page: Settings.paging
   end
 
   def show
@@ -52,7 +56,7 @@ class Admin::CategoriesController < ApplicationController
   def load_catagory
     begin
       @category = Category.find params[:id]
-    rescue Exception => e
+    rescue Exception
       response_to_message t("category.not_found"), admin_categories_url
     end
   end

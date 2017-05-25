@@ -3,7 +3,7 @@ class Script < ApplicationRecord
 
   belongs_to :user
 
-  scope :load_script_by_user, -> current_user {where user_id: current_user.id}
+  scope :load_script_by_user, ->user {where user_id: user.id}
 
   enum status: [:request, :approve, :reject]
 end

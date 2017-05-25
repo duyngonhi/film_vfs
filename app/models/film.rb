@@ -12,5 +12,4 @@ class Film < ApplicationRecord
     [I18n.t("manage_films.rate_3"), I18n.t("manage_films.rate_3")],
     [I18n.t("manage_films.rate_4"), I18n.t("manage_films.rate_4")],
     [I18n.t("manage_films.rate_5"), I18n.t("manage_films.rate_5")]]
-
 end
