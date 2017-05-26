@@ -6,3 +6,5 @@ size_row_area: 10
 paging: 10
 line_show: 4
 url_export_film: /admin/films.csv
+div_rate: 2
+max_rate: 5

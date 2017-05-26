@@ -29,9 +29,9 @@ class Film < ApplicationRecord
   end
 
   def calculate_rating_film count_like
-    rate = count_like/2
-    if rate >= 5
-      5
+    rate = count_like/Settings.div_rate
+    if rate >= Settings.max_rate
+      Settings.max_rate
     else
       rate
     end
