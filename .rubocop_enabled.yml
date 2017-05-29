@@ -207,7 +207,7 @@ Style/GlobalVars:
 
 Style/GuardClause:
   Description: "Check for conditionals that can be replaced with guard clauses"
-  Enabled: true
+  Enabled: false
 
 Style/HashSyntax:
   Description: >-
@@ -219,7 +219,7 @@ Style/IfUnlessModifier:
   Description: >-
                  Favor modifier if/unless usage when you have a
                  single-line body.
-  Enabled: true
+  Enabled: false
 
 Style/IfWithSemicolon:
   Description: "Never use if x; .... Use the ternary operator instead."
